@@ -1,9 +1,9 @@
 export default class LocalStorage {
-  static getData() {
+  static getData = () => {
     return JSON.parse(localStorage.getItem('taskslist'));
   }
 
-  static saveData(tasksList) {
+  static saveData = (tasksList) => {
     localStorage.setItem('taskslist', JSON.stringify(tasksList));
   }
 }

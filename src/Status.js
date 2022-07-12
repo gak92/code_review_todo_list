@@ -1,7 +1,7 @@
 import LocalStorage from './localstorage.js';
 
 export default class Status {
-  static statusChanged(checkBox, index, target, tasksList) {
+  static statusChanged = (checkBox, index, target, tasksList) => {
     const currentLi = target.parentElement;
     const taskDescription = currentLi.querySelector('#task');
 
@@ -16,7 +16,7 @@ export default class Status {
     LocalStorage.saveData(tasksList);
   }
 
-  static clearAllCompletedTask(e, tasksList) {
+  static clearAllCompletedTask = (e, tasksList) => {
     tasksList = LocalStorage.getData();
     tasksList = tasksList.filter((task) => task.completed === false);
     LocalStorage.saveData(tasksList);

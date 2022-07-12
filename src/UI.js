@@ -2,14 +2,14 @@ import LocalStorage from './localstorage.js';
 import Status from './Status.js';
 
 export default class UI {
-  static updateIndex(tasksList) {
+  static updateIndex = (tasksList) => {
     for (let i = 0; i < tasksList.length; i += 1) {
       tasksList[i].index = i + 1;
     }
     return tasksList;
   }
 
-  static removeTask(target, btn, index) {
+  static removeTask = (target, btn, index) => {
     const currentLi = target.parentElement;
     currentLi.parentElement.removeChild(currentLi);
 
@@ -20,13 +20,13 @@ export default class UI {
     this.showAllTasks(tasksList);
   }
 
-  static editTask(value, index, tasksList) {
+  static editTask = (value, index, tasksList) => {
     tasksList[index].description = value;
     LocalStorage.saveData(tasksList);
     this.showAllTasks(tasksList);
   }
 
-  static reloadPage() {
+  static reloadPage = () => {
     const tasksList = LocalStorage.getData();
     tasksList.forEach((task) => {
       task.completed = false;
@@ -34,7 +34,7 @@ export default class UI {
     LocalStorage.saveData(tasksList);
   }
 
-  static showAllTasks(tasksList) {
+  static showAllTasks = (tasksList) => {
     const todoList = document.querySelector('.todo-list');
     let tasks = '';
 
